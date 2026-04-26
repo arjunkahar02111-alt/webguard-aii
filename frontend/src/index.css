@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #040506;
+    color: #e8eaf0;
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #040506; }
+  ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #374151; }
+
+  ::selection { background: rgba(0, 212, 170, 0.2); color: #e8eaf0; }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-bg2/60 backdrop-blur-md border border-white/5 rounded-xl shadow-lg;
+  }
+  .glass-card-hover {
+    @apply transition-all duration-300 hover:border-accent/40 hover:shadow-[0_0_15px_rgba(0,212,170,0.15)];
+  }
+  .glass-panel {
+    @apply bg-bg3/80 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+  .neon-text {
+    text-shadow: 0 0 10px rgba(0, 212, 170, 0.5);
+  }
+}
+
+.cyber-grid-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+  z-index: -1;
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 80%);
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 80%);
+}
